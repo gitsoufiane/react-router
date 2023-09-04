@@ -9,11 +9,14 @@ export default function Navbar() {
   };
   return (
     <nav>
-      <NavLink style={navlinkStyles} to={"/about"}>
+      <NavLink style={navlinkStyles} to={"about"}>
         About
       </NavLink>
       <NavLink style={navlinkStyles} to={"/"}>
         Home
+      </NavLink>
+      <NavLink style={navlinkStyles} to={"products"}>
+        Products
       </NavLink>
     </nav>
   );
