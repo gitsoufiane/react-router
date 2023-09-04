@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-export default function Home() {
+export default function OrderSummary() {
   const navigate = useNavigate();
   return (
     <div>
-      Home
-      <button onClick={() => navigate("order", { replace: true })}>
-        Place Order
-      </button>
+      {" "}
+      OrderSummary
+      <button onClick={() => navigate(-1)}>Back</button>
     </div>
   );
 }
