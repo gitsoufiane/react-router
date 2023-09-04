@@ -1,23 +1,34 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "./auth";
 
-export default function Navbar() {
-  const navlinkStyles = ({ isActive }) => {
+export const Navbar = () => {
+  const auth = useAuth();
+  const navLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
       textDecoration: isActive ? "none" : "underline",
     };
   };
+
   return (
-    <nav>
-      <NavLink style={navlinkStyles} to={"about"}>
-        About
-      </NavLink>
-      <NavLink style={navlinkStyles} to={"/"}>
+    <nav className="primary-nav">
+      <NavLink to="/" style={navLinkStyles}>
         Home
       </NavLink>
-      <NavLink style={navlinkStyles} to={"products"}>
+      <NavLink to="/about" style={navLinkStyles}>
+        About
+      </NavLink>
+      <NavLink to="/products" style={navLinkStyles}>
         Products
       </NavLink>
+      <NavLink to="/profile" style={navLinkStyles}>
+        Profile
+      </NavLink>
+      {!auth.user && (
+        <NavLink to="/login" style={navLinkStyles}>
+          Login
+        </NavLink>
+      )}
     </nav>
   );
-}
+};
